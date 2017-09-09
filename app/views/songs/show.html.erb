@@ -1,7 +1,9 @@
-<h1><%=  @artist.artist_name %></h1>
-
+<h1>hello</h1>
+<h1><%=  @artist[:id] %></h1>
+<hr>
 <p>Songs:</p><ul>
     <li><% @songs.each do |song| %>
         <%= song.song_name %>
+        <hr>
     <% end %></li>
 </ul>
