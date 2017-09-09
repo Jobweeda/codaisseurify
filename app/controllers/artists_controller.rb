@@ -10,14 +10,27 @@ class ArtistsController < ApplicationController
     def new
         @artist = Artist.new
     end
-end
+
+    def create
+        @artist = Artist.new(artist_params)
+
+        if @artist.save
+            redirect_to @artist
+        else
+            render 'new'
+        end
+    end
+
+    def destroy
+        @artist = Artist.find(params[:id])
+        @artist.destroy
+        redirect_to root_path, notice: "Artist deleted"
+    end
+
+    private
 
 
-private
-
-
-def artist_params
-    params
-    .require(:artist)
-    .permit(:artist_name)
+    def artist_params
+        params.require(:artist).permit(:artist_name)
+    end
 end

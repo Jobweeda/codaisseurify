@@ -1,6 +1,4 @@
-<h1>Songs</h1>
-
-<%= form_for @song, artist_songs_path do |f| %>
+<%= form_for @song, url: artist_songs_path do |f| %>
     <% @song.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
