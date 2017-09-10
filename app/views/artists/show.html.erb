@@ -1,5 +1,10 @@
 <h1><%= @artist.artist_name %></h1>
+<% @artist.photo do |photo| %>
+    <%= image_tag photo.image %>
+<% end %>
+
 <hr>
+
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
