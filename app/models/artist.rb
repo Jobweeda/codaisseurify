@@ -1,6 +1,7 @@
 class Artist < ApplicationRecord
     has_many :songs, dependent: :destroy
-    has_one :photo
+    has_many :photos, dependent: :destroy
 
     validates :artist_name, presence: true
+    
 end
