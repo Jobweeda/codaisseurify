@@ -2,7 +2,7 @@
 <hr>
 
 <% @artists.each do |artist| %>
-    <p> <%= link_to artist.artist_name, artist_path(artist.id) %> </p>
+    <p> <%= link_to artist.artist_name, artist_path(artist.id), class: "btn btn-default" %> </p>
     <hr>
 <% end %>
 <%= link_to "Add Artist", new_artist_path, class: "btn btn-primary" %>
