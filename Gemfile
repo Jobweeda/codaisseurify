@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source 'https://rubygems.org'
+
+ruby '2.4.1'
+
+gem 'rails_12factor', group: :production
+
 gem 'carrierwave', '0.11.2'
 
 gem 'cloudinary', '1.2.3'
@@ -40,6 +46,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+
+  gem 'factory_girl_rails', '4.7.0'
+  gem 'faker', '1.6.6'
 end
 
 group :test do
