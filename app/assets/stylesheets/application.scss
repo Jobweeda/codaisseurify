@@ -1,2 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+    font-family: 'PT Mono', monospace;
+}
+
+.btn-primary {
+    background: rgb(59, 59, 59);
+}
+
+.carousel-inner {
+    background-color: rgb(126, 120, 123);
+}
+
+.btn-danger {
+    background: rgb(59, 59, 59);
+}
