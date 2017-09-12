@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :song do
-      song          { Faker::Lorem.word(1) }
+      name          "Balaclava"
       artist        { build(:artist) }
 
       trait :active do

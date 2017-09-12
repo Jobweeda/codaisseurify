@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Song, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    describe "song" do
+        it "shows the name of the song" do
+            song = build(:song, name: "Balaclava")
+            expect(song.name).to eq "Balaclava"
+        end
+    end
 end

@@ -18,7 +18,7 @@ describe "Going to an artist" do
         expect(page).to have_text("Cirrus")
     end
 
-    it "Does not show" do
+    it "Does not show other songs" do
         # visit artist_url(artist_two)
         visit artist_url(artist)
 
