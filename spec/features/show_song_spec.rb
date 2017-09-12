@@ -2,12 +2,12 @@ require 'rails_helper'
 
 describe "Going to an artist" do
 
-    let(:artist)         { create :artist, artist_name: "Dire Straits"}
-    let(:artist_two)     { create :artist, artist_name: "Bonobo"}
+    let(:artist)         { create :artist, name: "Dire Straits"}
+    let(:artist_two)     { create :artist, name: "Bonobo"}
 
-    let!(:song)          { create :song, song_name: "Monkeys", artist: artist}
-    let!(:song_two)      { create :song, song_name: "Cirrus", artist: artist}
-    let!(:song_three)    { create :song, song_name: "Black Sands", artist: artist_two}
+    let!(:song)          { create :song, name: "Monkeys", artist: artist}
+    let!(:song_two)      { create :song, name: "Cirrus", artist: artist}
+    let!(:song_three)    { create :song, name: "Black Sands", artist: artist_two}
 
     it "Shows all songs" do
         visit artist_url(artist)

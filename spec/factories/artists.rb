@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :artist do
-    artist_name  { Faker::Name.artist_name }
+    name  { Faker::Name.name }
   end
 end

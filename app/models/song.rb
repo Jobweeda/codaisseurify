@@ -1,6 +1,6 @@
 class Song < ApplicationRecord
     belongs_to :artist
 
-    validates :song_name, presence: true
-    validates :song_name, uniqueness: true 
+    validates :name, presence: true
+    validates :name, uniqueness: true 
 end

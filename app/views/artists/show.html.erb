@@ -1,4 +1,4 @@
-<h1><%= @artist.artist_name %></h1>
+<h1><%= @artist.name %></h1>
   <hr>
 
   <% @artist.photos.each do |photo| %>
@@ -10,7 +10,7 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <li><%= song.song_name %> --
+      <li><%= song.name %> --
   <%= link_to "Delete song", artist_song_path(@artist.id, song.id),method: :delete, data: { confirm: "Are you sure?" } %></li>
   <hr>
     <% end %>
