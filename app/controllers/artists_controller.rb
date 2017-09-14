@@ -2,42 +2,40 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
   end
-    def index
-        @artists = Artist.all
-    end
 
-    def new
-        @artist = Artist.new
-    end
+  def index
+    @artists = Artist.all
+  end
 
-    def create
-        @artist = Artist.new(artist_params)
+  def new
+    @artist = Artist.new
+  end
+
+  def create
+    @artist = Artist.new(artist_params)
     if @artist.save
-            image_params.each do |image|
-                @artist.photos.create(image: image)
-            end
-
-            redirect_to @artist
-        else
-            render 'new'
-        end
+      image_params.each do |image|
+      @artist.photos.create(image: image)
     end
-
-    def destroy
-        @artist = Artist.find(params[:id])
-        @artist.destroy
-        redirect_to root_path, notice: "Artist deleted"
+      redirect_to @artist
+    else
+      render 'new'
     end
+  end
 
+  def destroy
+    @artist = Artist.find(params[:id])
+    @artist.destroy
+    redirect_to root_path, notice: "Artist deleted"
+  end
 
   private
 
+  def image_params
+    params[:images].present? ? params.require(:images) : []
+  end
 
-    def image_params
-      params[:images].present? ? params.require(:images) : []
-    end
-
-    def artist_params
-        params.require(:artist).permit(:name)
-    end
+  def artist_params
+    params.require(:artist).permit(:name)
+  end
 end
