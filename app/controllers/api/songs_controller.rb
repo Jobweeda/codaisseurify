@@ -1,4 +1,4 @@
-class Api::ArtistsController < ApplicationController
+class Api::SongsController < ApplicationController
 
   def index
     render status: 200, json: {
@@ -12,5 +12,26 @@ class Api::ArtistsController < ApplicationController
     render status: 200, json: {
       song: song
     }.to_json
+  end
+
+  def create
+    song = Song.new(song_params)
+
+    if song.save
+      render status: 201, json: {
+        message: "Song added",
+        song: song
+      }.to_json
+    else
+      render status: 422, json: {
+        errors: song.errors
+      }.to_json
+    end
+  end
+
+  private
+
+  def song_params
+    params.require(:song).permit(:name, :artist_id)
   end
 end
