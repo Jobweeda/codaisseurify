@@ -29,6 +29,30 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def update
+    song = Song.find(params[:id])
+    if song.update(song_params)
+      render status: 200, json: {
+        message: "Song updated",
+        song: song
+      }.to_json
+    else
+       render status: 422, json: {
+        message: "Something went wrong! The song is not updated",
+        errors: song.errors
+      }.to_json
+    end
+  end
+
+  def destroy
+    song = Song.find(params[:id])
+    song.destroy
+
+    render status: 200, json: {
+      message: "Song removed"
+    }.to_json
+  end
+
   private
 
   def song_params
