@@ -8,7 +8,7 @@ function submitSong(event) {
 }
 function createSong(songName) {
 
-  var newSong = { name:, completed: false };
+  var newSong = { name:};
 
     $.ajax({
       type: "POST",
