@@ -1,3 +1,8 @@
+<p class="create">Add a song</p>
+<%= render 'songs/form'%>
+<hr>
+
+
 <h1><%= @artist.name %></h1>
   <hr>
 
@@ -16,7 +21,7 @@
 
       <li class="one-song">
         <p><%= song.name %> --</p>
-        <p id="<%="#{song.id}"%>" class="btn btn-sm button-artist delete-button">Delete Song</p>
+        <p id="<%="#{song.id}"%>" class="btn delete-button">Delete Song</p>
   </li>
   <hr>
     <% end %>
@@ -26,8 +31,7 @@
 <% end %>
 <hr>
 <hr>
-<p class="create">Add a song</p>
-<%= render 'songs/form'%>
+
 <%= link_to "Back to Artists", root_path, class: "btn btn-primary" %>
 <%= link_to "Delete this Artist", artist_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 <a href="#" id="remove-songs">Remove all songs</a>
