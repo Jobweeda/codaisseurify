@@ -10,30 +10,30 @@ class SongsController < ApplicationController
 
     end
 
+    # def create
+    #     @song = Song.new(song_params)
+    #     @song.artist_id = params[:artist_id]
+    #
+    #     if @song.save
+    #         redirect_to artist_path(params[:artist_id]), notice: "Song Saved!"
+    #     else
+    #         render 'new'
+    #     end
+    # end
+
     def create
-        @song = Song.new(song_params)
-        @song.artist_id = params[:artist_id]
+      @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
 
-        if @song.save
-            redirect_to artist_path(params[:artist_id]), notice: "Song Saved!"
-        else
-            render 'new'
-        end
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to artist_path(@song.artist), notice: "Song Saved!" }
+        format.json { render :show, status: :created, location: @song }
+      else
+        format.html { render :new}
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
     end
-
-  #   def create
-  #     @song = Song.new(song_params)
-  #
-  #   respond_to do |format|
-  #     if @song.save
-  #       format.html { redirect_to artist_path(params[:artist_id]), notice: "Song Saved!" }
-  #       format.json
-  #     else
-  #       format.html { render :new}
-  #       format.json { render json: @song.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  end
 
     def destroy
         @song = Song.find(params[:id])
