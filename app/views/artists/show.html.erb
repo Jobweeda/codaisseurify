@@ -6,9 +6,11 @@
   <% end %>
 
   <hr>
+  <%= render "form", song: @song %>
 
+      <hr />
 <% if @artist.songs.any? %>
-  <ul>
+  <ul class="all-songs">
     <% @artist.songs.each do |song| %>
       <li><%= song.name %> --
   <%= link_to "Delete song", artist_song_path(@artist.id, song.id),method: :delete, data: { confirm: "Are you sure?" } %></li>
@@ -19,7 +21,7 @@
   <p>This artist appears to have no songs.</p>
 <% end %>
 
-
 <%= link_to "Add a song to this artist!", new_artist_song_path(@artist.id), class: "btn btn-primary"%>
 <%= link_to "Back to Artists", root_path, class: "btn btn-primary" %>
 <%= link_to "Delete this Artist", artist_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<a href="#" id="remove-songs">Remove all songs</a>
