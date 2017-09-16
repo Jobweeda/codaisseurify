@@ -24,6 +24,19 @@ function createSong(title) {
 
   $(".all-songs").append(songItem);
 
+  var newSong = { title: title};
+
+  $.ajax({
+    type: "POST",
+    url: "/songs.json",
+    data: JSON.stringify({
+        song: newSong
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  });
+}
+
 
 function destroySongs(event) {
   event.preventDefault();

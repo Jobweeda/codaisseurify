@@ -20,6 +20,20 @@ class SongsController < ApplicationController
         end
     end
 
+  #   def create
+  #     @song = Song.new(song_params)
+  #
+  #   respond_to do |format|
+  #     if @song.save
+  #       format.html { redirect_to @artist.songs, notice: 'Song created.' }
+  #       format.json { render :show, status: :created, location: @artist }
+  #     else
+  #       format.html { render :new}
+  #       format.json { render json: @song.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
     def destroy
         @song = Song.find(params[:id])
         @song.destroy
