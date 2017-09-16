@@ -21,10 +21,7 @@
   <p>This artist appears to have no songs.</p>
 <% end %>
 <hr>
-<form>
-      <input type="text" id="new-song" placeholder="Add a song">
-    </form>
-<!-- <%= render "form", song: @song%> -->
+<%= render "form", song: @song %>
 <hr>
 <%= link_to "Add a song to this artist!", new_artist_song_path(@artist.id), class: "btn btn-primary"%>
 <%= link_to "Back to Artists", root_path, class: "btn btn-primary" %>
