@@ -7,7 +7,18 @@ function submitSong(event) {
 
 }
 function createSong(songName) {
-  var checkboxId = "song-" + nextSongId();
+
+  var newSong = { name:, completed: false };
+
+    $.ajax({
+      type: "POST",
+      url: "/songs.json",
+      data: JSON.stringify({
+          name: name
+      }),
+      contentType: "application/json",
+      dataType: "json"
+    });
 
   var listItem = $("<li></li>");
   listItem.addClass("one-song");

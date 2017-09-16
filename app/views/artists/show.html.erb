@@ -13,8 +13,11 @@
 <% if @artist.songs.any? %>
   <ul id="all-songs">
     <% @artist.songs.each do |song| %>
-      <li class="one-song"><%= song.name %> --
-  <%= link_to "Delete song", artist_song_path(@artist.id, song.id),method: :delete, data: { confirm: "Are you sure?" } %></li>
+
+      <li class="one-song">
+        <p><%= song.name %> --</p>
+        <p id="<%="#{song.id}"%>" class="btn btn-sm button-artist delete-button">Delete Song</p>
+  </li>
   <hr>
     <% end %>
   </ul>
