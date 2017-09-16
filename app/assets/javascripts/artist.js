@@ -1,29 +1,20 @@
 function submitSong(event) {
   event.preventDefault();
-  var songName = $('#new-song').val();
+  var songName = $('#song_name').val();
 
   createSong(songName);
-  $('#new-song').val(null);
+  $('#song_name').val(null);
 
 }
 function createSong(songName) {
   var checkboxId = "song-" + nextSongId();
 
   var listItem = $("<li></li>");
-  listItem.addClass("song");
+  listItem.addClass("one-song");
 
 
 
-  var space = document.createTextNode(" ");
-
-
-
-
-  listItem.append(space);
-
-
-  $("#song").append( listItem );
-
+  $("#all-songs").append( listItem );
 
 }
 

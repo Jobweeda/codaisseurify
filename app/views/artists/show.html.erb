@@ -10,15 +10,10 @@
 <h1>Songs</h1>
       <hr />
 
-      <form>
-            <input type="text" id="new-song" placeholder="Add a song">
-            
-      </form>
-
 <% if @artist.songs.any? %>
-  <ul id="songs">
+  <ul id="all-songs">
     <% @artist.songs.each do |song| %>
-      <li class="song"><%= song.name %> --
+      <li class="one-song"><%= song.name %> --
   <%= link_to "Delete song", artist_song_path(@artist.id, song.id),method: :delete, data: { confirm: "Are you sure?" } %></li>
   <hr>
     <% end %>
@@ -28,7 +23,8 @@
 <% end %>
 <hr>
 <hr>
-<%= link_to "Add a song to this artist!", new_artist_song_path(@artist.id), class: "btn btn-primary"%>
+<p class="create">Add a song</p>
+<%= render 'songs/form'%>
 <%= link_to "Back to Artists", root_path, class: "btn btn-primary" %>
 <%= link_to "Delete this Artist", artist_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 <a href="#" id="remove-songs">Remove all songs</a>
