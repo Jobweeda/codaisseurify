@@ -53,6 +53,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
 end
 
 group :development do
