@@ -37,20 +37,20 @@ function createSong(songName) {
 
 function deleteSongs(event) {
   event.preventDefault();
+  $.done(function(data) {
+    $('#new-song'+ songId +'').remove();
 
   $.ajax({
     type: "DELETE",
-    url: "/artists" + artistId + "/songs" + ".json",
+    url: "/api/artists/" + artistId + "/songs" + songId + ".json",
     contentType: "application/json",
     datatype: "json"})
 
-    .done(function(data) {
-      $('#song_"'+ songId +'"').remove();
     });
 
 
 
 $(document).ready(function() {
 $("form").bind('submit', submitSong);
-$("#remove-songs").bind('click', deleteSongs);
+$("#remove-songs").on('click', deleteSongs);
 });
