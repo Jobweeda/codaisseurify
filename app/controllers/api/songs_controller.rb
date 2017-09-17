@@ -1,6 +1,7 @@
 class Api::SongsController < ApplicationController
 skip_before_action  :verify_authenticity_token
   def index
+    @songs = artist.songs
     render status: 200, json: {
       songs: Song.all
     }.to_json
@@ -53,15 +54,15 @@ skip_before_action  :verify_authenticity_token
     }.to_json
   end
 
-  def destroy_all_songs
-    @artist = Artist.find(params[:artist_id])
-    @songs = @artist.songs
-    @songs.destroy_all
-    respond_to do |format|
-      format.html { redirect_to artist_path(@artist), notice: 'All songs removed.' }
-      format.json { render status: 200, location: @artist }
-    end
-  end
+  # def remove_all_songs
+  #   @artist = Artist.find(params[:artist_id])
+  #   @songs = @artist.songs
+  #   @songs.destroy_all
+  #   respond_to do |format|
+  #     format.html { redirect_to artist_path(@artist), notice: 'Songs removed.' }
+  #     format.json { render status: 200, location: @artist }
+  #   end
+  # end
 
   private
 

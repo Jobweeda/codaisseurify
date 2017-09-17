@@ -42,7 +42,7 @@ function createSong(songName) {
     type: "DELETE",
     url: "/api/artists/" + artistId + "/songs" + songId + ".json",
     contentType: "application/json",
-    datatype: "json"
+    dataType: "json"
   })
     $.done(function(data) {
       $("#new-song"+ songId +".json").remove();
@@ -57,15 +57,21 @@ function createSong(songName) {
   //     deleteSong(song);
   //   });
   // }
-  function deleteAllSongs(event) {
-   event.preventDefault();
+  function removeAllSongs(event) {
+    event.preventDefault();
 
-   $.each($(".new-song").remove())
-   }
+    $.each($(".remove-song"), function(index, song) {
+      var songId = $(song).attr('id');
+      deleteSong(songId);
+    });
+  }
+
+
+
 
 
 
 $(document).ready(function() {
 $("form").bind("submit", submitSong);
-$(".remove-all-songs").bind("click", deleteAllSongs);
+$(".remove-songs").bind("click", removeAllSongs);
 });
