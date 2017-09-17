@@ -40,7 +40,7 @@ class SongsController < ApplicationController
         @song.destroy
 
         respond_to do |format|
-          format.html { redirect_to artist_path(params[:artist_id]), notice: "Songs removed"}
+          format.html { redirect_to artist_path(params[:artist_id]), notice: "Song removed"}
           format.json { head :no_content }
         end
         # redirect_to artist_path(params[:artist_id]), notice: "Song Deleted!"
