@@ -35,4 +35,6 @@
 
 <%= link_to "Back to Artists", root_path, class: "btn btn-primary" %>
 <%= link_to "Delete this Artist", artist_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<a href="#" id="clean-up">Clean up</a>
+<!-- <a href="#" id="clean-up">Clean up</a> -->
+
+<a href="/api/artists/<%= @artist.id %>/songs/destroy_all_songs" data-method="delete" rel="nofollow" class="btn btn-primary remove-all-songs">Remove All Songs</a
