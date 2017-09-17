@@ -1,5 +1,5 @@
 class Api::SongsController < ApplicationController
-
+skip_before_action  :verify_authenticity_token
   def index
     render status: 200, json: {
       songs: Song.all
@@ -32,7 +32,7 @@ class Api::SongsController < ApplicationController
   def update
     song = Song.find(params[:id])
     if song.update(song_params)
-      render status: 200, json: {
+        render status: 200, json: {
         message: "Song updated",
         song: song
       }.to_json
@@ -45,7 +45,7 @@ class Api::SongsController < ApplicationController
   end
 
   def destroy
-    song = Song.find(params[:id])
+    song = @artist.song.find(params[:id])
     song.destroy
 
     render status: 200, json: {

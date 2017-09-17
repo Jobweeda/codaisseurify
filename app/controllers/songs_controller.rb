@@ -23,7 +23,7 @@ class SongsController < ApplicationController
 
     def create
       @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
-
+     
     respond_to do |format|
       if @song.save
         format.html { redirect_to artist_path(@song.artist), notice: "Song Saved!" }

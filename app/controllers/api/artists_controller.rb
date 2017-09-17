@@ -1,4 +1,5 @@
 class Api::ArtistsController < ApplicationController
+skip_before_action  :verify_authenticity_token
   def index
     render status: 200, json: {
       artists: Artist.all
@@ -10,6 +11,6 @@ class Api::ArtistsController < ApplicationController
 
     render status: 200, json: {
       artist: artist
-    }.to_json    
+    }.to_json
   end
 end
