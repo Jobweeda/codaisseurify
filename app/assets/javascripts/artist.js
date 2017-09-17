@@ -71,7 +71,7 @@ function createSong(songName) {
 
     $.ajax({
       type: "DELETE",
-      url:  "/artists/" + artistId + "#",
+      url:  "/artists/" + artistId + "/songs/" + songId + ".json",
       contentType: "application/json",
       dataType: "json"
     })
